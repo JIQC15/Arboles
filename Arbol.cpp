@@ -116,7 +116,6 @@ int Tree::Count_Data_leaf(Nodo* tree) {//Funcion que nos permite contar las hoja
 }
 
 void Tree::Delete_Data_Leaf(Nodo*& suppress, Nodo*& root) {//Esta función eliminará solo aquel dato hoja que el usuario requiera, es parecita a la función eliminar nodo, pero esta se implementa con condiciones destinadas a las hojas en particular.
-    cout << "hola soi una hoja";
     if (suppress->get_Principal() != NULL) {
         if (right_Branch(suppress))
             suppress->get_Principal()->set_Der(NULL);
