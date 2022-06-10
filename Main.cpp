@@ -85,7 +85,6 @@ int main(void) {
         case 7:
             system("cls");
             cout << "DELETE MINIMIUM DATA." << endl;
-            cout << object_tree.minumium_Data(tree)->get_Data() << endl;
             object_tree.Delete_All(tree, object_tree.minumium_Data(tree)->get_Data());
             cout << "The minimium value was successfully removed from the tree!!" << endl;
             system("pause");

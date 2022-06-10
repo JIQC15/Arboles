@@ -14,9 +14,9 @@ void Tree::insert_Data(Nodo*& tree, int number, Nodo* principal) {//Función que 
     }else {
         int root_data = tree->get_Data();
         if (number < root_data)
-            insert_Data(tree->get_Izq(), number, principal);
+            insert_Data(tree->get_Izq(), number, tree);
         else
-            insert_Data(tree->get_Der(), number, principal);
+            insert_Data(tree->get_Der(), number, tree);
     }
 }
 
@@ -52,7 +52,7 @@ void Tree::Delete_All(Nodo* tree, int number) {//Función que nos ayudará a borra
     if (tree == NULL)
         return;
     else if (number < tree->get_Data())
-        Delete_All(tree->get_Der(), number);
+        Delete_All(tree->get_Izq(), number);
     else if (number > tree->get_Data())
         Delete_All(tree->get_Der(), number);
     else
