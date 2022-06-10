@@ -20,9 +20,8 @@ void insertarArbol() {
 
 int main(void) {
     int data = 0, opc = 0, counter = 0;
-    
 
-    cout << "Bienvenido al programa \"ARBOLES\"" << endl;
+    cout << "Welcome to the program \"ARBOLES\"" << endl;
     system("pause");
     insertarArbol();
 

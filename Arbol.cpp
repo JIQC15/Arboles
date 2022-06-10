@@ -1,3 +1,4 @@
+//Arbol.cpp
 #include "Arbol.h"
 
 Tree::Tree() {//Constructor Definido.
@@ -58,7 +59,7 @@ void Tree::Delete_All(Nodo* tree, int number) {//Función que nos ayudará a borra
         Delete_Data(tree);
 }
 
-bool Tree::search_Data(Nodo* tree, int number) {//Función que nos ayudará a ir buscando por nodo hoja para encontrar el valor deseado.
+/*bool Tree::search_Data(Nodo* tree, int number) {//Función que nos ayudará a ir buscando por nodo hoja para encontrar el valor deseado.
     if (tree == NULL)
         return false;
     else if (tree->get_Data() == number)
@@ -67,7 +68,7 @@ bool Tree::search_Data(Nodo* tree, int number) {//Función que nos ayudará a ir b
             return search_Data(tree->get_Der(), number);
         else
             return search_Data(tree->get_Izq(), number);
-}
+}*/
 
 void Tree::Delete_Data(Nodo* aux) {//Esta función se implementará para poder eliminar un nodo en particular, se puede observar como irá buscando nodo por nodo para poder eliminarlo.
     if (aux->get_Izq() && aux->get_Der()) {
@@ -142,6 +143,17 @@ bool Tree::right_Branch(Nodo*& son) {//Nos ayudará a poder identificar los nodos
     return false;
 }
 
+void Tree::Change_Someone(Nodo* tree, Nodo* new_Data) {
+    if (tree->get_Principal()) {
+        if (tree->get_Data() == tree->get_Principal()->get_Izq()->get_Data())
+            tree->get_Principal()->set_Izq(new_Data);
+        else if (tree->get_Data() == tree->get_Principal()->get_Der()->get_Data())
+            tree->get_Principal()->set_Der(new_Data);
+    }
+    if (new_Data)
+        new_Data->set_Principal(tree->get_Principal());
+}
+
 Nodo* Tree::minumium_Data(Nodo* aux) {
     if (aux == NULL)
         return NULL;
@@ -158,15 +170,4 @@ Nodo* Tree::maximium_Data(Nodo* aux) {
         return maximium_Data(aux->get_Der());
     else
         return aux;
-}
-
-void Tree::Change_Someone(Nodo* tree, Nodo* new_Data) {
-    if (tree->get_Principal()) {
-        if (tree->get_Data() == tree->get_Principal()->get_Izq()->get_Data())
-            tree->get_Principal()->set_Izq(new_Data);
-        else if (tree->get_Data() == tree->get_Principal()->get_Der()->get_Data())
-            tree->get_Principal()->set_Der(new_Data);
-    }
-    if (new_Data)
-        new_Data->set_Principal(tree->get_Principal());
 }

@@ -1,3 +1,4 @@
+//Arbol.h
 #pragma once
 #include <iostream>
 #include "Nodo.h"
@@ -17,7 +18,7 @@ public:
 	void Show(Nodo*, int);
 	void show_All(Nodo*, int);
 	void Delete_All(Nodo*, int);
-	bool search_Data(Nodo*, int);
+	//bool search_Data(Nodo*, int);
 	void Delete_Data(Nodo*);
 	void Show_Data_Preorder(Nodo*);
 	int Count_Data(Nodo*);
